@@ -3,8 +3,10 @@ from PIL import Image
 import pandas as pd
 import requests 
 import json 
+from io import BytesIO
 
-logo= Image.open(r"https://github.com/apeksha235/data_science/blob/main/Week%201/Currency_converter/logo.png")
+response = requests.get('https://i.pinimg.com/564x/6d/3c/5f/6d3c5f0eeaa113dbe97128e26a079733.jpg')
+logo = Image.open(BytesIO(response.content))
 st.image(logo, width=400)
 st.title('Currency Converter App')
 st.markdown("""
