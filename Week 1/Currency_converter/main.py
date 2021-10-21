@@ -4,7 +4,7 @@ import pandas as pd
 import requests 
 import json 
 
-logo= Image.open(r"C:\Users\Apeksha\Documents\Currency_converter\logo.png")
+logo= Image.open(r"https://github.com/apeksha235/data_science/blob/main/Week%201/Currency_converter/logo.png")
 st.image(logo, width=400)
 st.title('Currency Converter App')
 st.markdown("""
