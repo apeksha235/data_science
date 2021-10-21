@@ -8,19 +8,16 @@ logo= Image.open(r"C:\Users\Apeksha\Documents\Currency_converter\logo.png")
 st.image(logo, width=400)
 st.title('Currency Converter App')
 st.markdown("""
-This app interconverts the value of foreign currencies!
+This app interconverts a given amount from ```Euro``` to any foreign currency!
 """)
 
-#---------------------------------#
-# Sidebar + Main panel
 st.sidebar.header('Input Options')
 
-## Sidebar - Currency price unit
 currency_list = ['AUD', 'BGN', 'BRL', 'CAD', 'CHF', 'CNY', 'CZK', 'DKK', 'GBP', 'HKD', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'ISK', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PLN', 'RON', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'USD', 'ZAR']
-base_price_unit = st.sidebar.selectbox('Select base currency for conversion', currency_list)
-symbols_price_unit = st.sidebar.selectbox('Select target currency to convert to', currency_list)
 
-# Retrieving currency data from ratesapi.io
+symbols_price_unit = st.sidebar.selectbox('Select target currency to convert to from Euro', currency_list)
+amount = st.number_input(label="What amount you want to convert?",step=1.,format="%.2f")
+
 # https://api.ratesapi.io/api/latest?base=AUD&symbols=AUD
 @st.cache
 def load_data():
@@ -30,6 +27,7 @@ def load_data():
     base_currency = pd.Series( data['base'], name='base_currency')
     rates_df = pd.DataFrame.from_dict( data['rates'].items() )
     rates_df.columns = ['converted_currency', 'price']
+    rates_df['price']=rates_df['price']*amount
     conversion_date = pd.Series( data['date'], name='date' )
     df = pd.concat( [base_currency, rates_df, conversion_date], axis=1 )
     return df
