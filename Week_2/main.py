@@ -10,12 +10,12 @@ import re
 ##### EXTRACTING THE BODY ######
 with Imbox('imap.gmail.com',
         username='apeksha05hegde@gmail.com',
-        password='23May2002?',
+        password='',
         ssl=True,
         ssl_context=None,
         starttls=False) as imbox:
-        inbox = imbox.messages(unread=True,sent_from='apeksha.hegde@somaiya.edu')
-        download_folder = r"C:\Users\Apeksha\Documents\gmail_proj"
+        inbox = imbox.messages(unread=True,sent_from='')
+        download_folder = r" "
 
         if not os.path.isdir(download_folder):
           os.makedirs(download_folder, exist_ok=True)
