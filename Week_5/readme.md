@@ -20,6 +20,5 @@
 - Gradient Boosting
 
 ### I took the ```Mean Squared Error``` for every model, and analysed the loss for each. Here are my conclusions: 
-- XGBoost is the best working model for this dataset with MSE of 0.02
-- Decision Tree, Extra Trees and other Bagged Trees don't work well and MSE ranges between 0.04 to 0.06
-- Linear Regression models work moderately good, can be made better with the help of hyperparameters. 
+ - As shown above ``` Mean Squared Error``` has one of the lowest values in the Boosting techniques and Linear regression models. Hence they are the best working model for this dataset.
+ - The highest loss is mainly witnessed in bagging trees since the input data for prediction contains 95% categorical features this results in sparse data reducing the efficiency of these tree based models.
