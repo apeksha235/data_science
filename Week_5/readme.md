@@ -22,3 +22,5 @@
 ### I took the ```Mean Squared Error``` for every model, and analysed the loss for each. Here are my conclusions: 
  - As shown above ``` Mean Squared Error``` has one of the lowest values in the Boosting techniques and Linear regression models. Hence they are the best working model for this dataset.
  - The highest loss is mainly witnessed in bagging trees since the input data for prediction contains 95% categorical features this results in sparse data reducing the efficiency of these tree based models.
+
+## Link to the kaggle notebook: [click here](https://www.kaggle.com/apeksha23/machine-learning-algorithms-on-anime-dataset)
